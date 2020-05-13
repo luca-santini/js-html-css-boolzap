@@ -6,6 +6,6 @@ $('.new-message-inputs').focus(function() {
 
 // ​ad ogni inserimento di un messaggio, l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo.
 
-$('.new-message-inputs').click(function() {
-    alert('ok');
+$('.f-right').click(function() {
+    setTimeout(function(){ alert("ok"); }, 1000);
 });
