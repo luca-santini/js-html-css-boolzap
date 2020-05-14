@@ -8,7 +8,12 @@ $('.new-message-inputs').focus(function() {
 // ​ad ogni inserimento di un messaggio, l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo.
 
 $('.f-right').click(function() {
-    setTimeout(function(){ alert("ok"); }, 1000);
+    var messaggioUtente = $('.new-message-inputs').val();
+    console.log(messaggioUtente);
+    var cloneMessage = $(".template .message").clone();
+    console.log(cloneMessage);
+    cloneMessage.find('.message-text').text(messaggioUtente);
+    $('.right-messages.active').append(cloneMessage);
 });
 
 // MILESTONE 2.2
@@ -40,27 +45,7 @@ $('.fa-search').click(function()  {
 // Milestone 3
 
 // intercetto il click sul contatto
-// $('contact').click(function() {
-//     // recuper l'attributo data-chat del contatto di cui ho cliccato
-//     var chat = $(this).attr('data-chat');
-//     console.log(chat);
-//     // tolgo la classe active a tutti i div-right messages per nasconderer tutti i pannelli delle chat
-//     $('.right-messages').removeClass('active');
-//     // recupero il div right-messages che ha lo stessi attributo data-chat del contatto su cui ho cliccato e ci assegno la classe active
-//     // ?? $('right-messages[data-chat= '' ' + chat +' "]').addClass('active');
-//
-// // recupero il nome del contatto su cui ho cliccato
-// var nome_contatto = $(this)find('.contact-name').text();
-// console.log(nome_contatto);
-//
-//     // $('.right-messages').each(function() {
-//     //     var chat_messaggi = $('.right-messages').attr('data-chat');
-//     //     console.log('data-chat messaggi ' + chat_messaggi);
-//     //     if (chat == chat_messaggi) {
-//     //         $(this).addClass('active');
-//     //     }
-//     // });
-// });
-
-
-// Cancella messaggio: ​cliccando sul messaggio appare un menu a tendina che permette di cancellare il messaggio selezionato
+$('contact').click(function() {
+    // recuper l'attributo data-chat del contatto di cui ho cliccato
+    var chat = $(this).attr('data-chat');
+});
