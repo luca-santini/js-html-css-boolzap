@@ -8,10 +8,28 @@ $('.new-message-inputs').focus(function() {
 $('.f-right').click(function() {
     var messaggioUtente = $('.new-message-inputs').val();
     console.log(messaggioUtente);
-    var cloneMessage = $(".template .message").clone();
-    console.log(cloneMessage);
-    cloneMessage.find('.message-text').text(messaggioUtente);
-    $('.right-messages.active').append(cloneMessage);
+    var template = $('#template').html();
+    var template_function = Handlebars.compile(template);
+
+    var messaggio = {
+        'testo': messaggioUtente,
+        'classe': 'sent'
+    };
+
+    var html = template_function(messaggio);
+    $('.right-messages.active').append(html);
+
+    var messaggio2 = {
+        'testo': 'ok',
+        'classe': 'received'
+    };
+
+    var html2 = template_function(messaggio2);
+    $('.right-messages.active').append(html2);
+    // var cloneMessage = $(".template .message").clone();
+    // console.log(cloneMessage);
+    // cloneMessage.find('.message-text').text(messaggioUtente);
+    // $('.right-messages.active').append(cloneMessage);
 });
 
 // MILESTONE 2.2
